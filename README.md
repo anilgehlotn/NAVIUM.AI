@@ -1,0 +1,2 @@
+# Cortex AI
+Project initialized.
