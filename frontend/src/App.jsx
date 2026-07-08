@@ -1,9 +1,12 @@
+import React from 'react';
+import Layout from './components/Layout';
+import Home from './pages/Home';
+
 function App() {
   return (
-    <div>
-      <h1>Cortex AI</h1>
-      <p>Project initialized successfully.</p>
-    </div>
+    <Layout>
+      <Home />
+    </Layout>
   );
 }
 
