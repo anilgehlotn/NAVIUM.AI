@@ -1,15 +1,16 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
   const navItems = [
-    { name: 'Home', icon: '🏠', active: true },
-    { name: 'Chat', icon: '💬', active: false },
-    { name: 'Coding', icon: '💻', active: false },
-    { name: 'Search', icon: '🔍', active: false },
-    { name: 'PDF', icon: '📄', active: false },
-    { name: 'PPT', icon: '📊', active: false },
-    { name: 'Images', icon: '🖼️', active: false },
-    { name: 'Billing', icon: '💳', active: false },
+    { name: 'Home', icon: '🏠', path: '/' },
+    { name: 'Chat', icon: '💬', path: '/chat' },
+    { name: 'Coding', icon: '💻', path: '/coding' },
+    { name: 'Search', icon: '🔍', path: '/search' },
+    { name: 'PDF', icon: '📄', path: '/pdf' },
+    { name: 'PPT', icon: '📊', path: '/ppt' },
+    { name: 'Images', icon: '🖼️', path: '/images' },
+    { name: 'Billing', icon: '💳', path: '/billing' },
   ];
 
   return (
@@ -17,9 +18,15 @@ const Sidebar = () => {
       <h3 className="sidebar-title">Menu</h3>
       <ul className="nav-menu">
         {navItems.map((item, index) => (
-          <li key={index} className={`nav-item ${item.active ? 'active' : ''}`}>
-            <span className="nav-icon">{item.icon}</span>
-            <span className="nav-text">{item.name}</span>
+          <li key={index}>
+            <NavLink 
+              to={item.path} 
+              className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+              style={{ textDecoration: 'none' }}
+            >
+              <span className="nav-icon">{item.icon}</span>
+              <span className="nav-text">{item.name}</span>
+            </NavLink>
           </li>
         ))}
       </ul>
